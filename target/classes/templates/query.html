@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel= "stylesheet" th:href="@{/css/mystyle.css}">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+<script th:src= "@{/js/jquery.min.js}" ></script>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<div class="divForm">
+		<table id="customers">
+		<tr>
+			<th>userId</th>
+			<th>userName</th>
+			<th>password</th>
+		</tr>
+		<tr th:each="user:${users}">
+			<td bgcolor="gray" th:text="${user.userId}">${user.userId}</td>
+			<td bgcolor="gray" th:text="${user.userName}">${user.userName}</td>
+			<td bgcolor="gray" th:text="${user.password}"></td>
+		</tr>
+	</table>
+		<br>
+		<form id="form1" action="/insertUser" method="post">
+		<input type="text" name="userId" placeholder="用户Id" />
+		<br>
+		<input type="text" name="userName" placeholder="用户名" />
+		<br>
+		<input type="text" name="password"placeholder="密码" />
+		<br>
+		<input type="submit" value="submit" />
+	</form>
+	</div>
+</body>
+</html>
